@@ -19,6 +19,11 @@ $icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bo
   padding: 0.2em 0;
 }
 
+.select2-results .select2-highlighted:hover {
+    background: #3875d7;
+    color: #fff;
+}
+
 
 /**
  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
