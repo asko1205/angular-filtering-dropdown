@@ -1,6 +1,11 @@
 <h2>Books</h2>
-<select
-  name="books"
-  ng-model="selectedBook"
-  ng-options="book.id as book.title + ' by ' + book.author for book in main.books">
-</select>
+
+<ui-select ng-model="selected.value" theme="select2" style="min-width: 300px;" title="Choose a book">
+    <ui-select-match placeholder="Select a book in the list or search its title/author...">{{$select.selected.title}}</ui-select-match>
+    <ui-select-choices repeat="book in main.books | propsFilter: {title: $select.search, author: $select.search}">
+      <div ng-bind-html="book.title | highlight: $select.search"></div>
+      <small>
+        author: {{book.author}}
+      </small>
+    </ui-select-choices>
+  </ui-select>
