@@ -9,3 +9,17 @@
       </small>
     </ui-select-choices>
   </ui-select>
+
+  <br>
+  <br>
+
+  <ui-select multiple ng-model="main.multipleDemo.selectedBook" theme="bootstrap" ng-disabled="ctrl.disabled" sortable="true" close-on-select="false" style="width: 800px;">
+    <ui-select-match placeholder="Select person...">{{$item.title}} &lt;{{$item.author}}&gt;</ui-select-match>
+    <ui-select-choices repeat="book in main.books | propsFilter: {title: $select.search, author: $select.search}">
+      <div ng-bind-html="book.title | highlight: $select.search"></div>
+      <small>
+        author: {{book.author}}
+      </small>
+    </ui-select-choices>
+  </ui-select>
+  <p>Selected: {{main.multipleDemo.selectedBook}}</p>
